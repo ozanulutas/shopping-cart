@@ -1,19 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Navbar 
+      :product="product"
+    />
+    <b-container>
+      <ProductsSection
+        @add-to-cart="addToCart"
+      />
+    </b-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from "@/components/Navbar.vue";
+import ProductsSection from "@/components/ProductsSection.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    ProductsSection,
+    Navbar,
+  },
+  data() {
+    return {
+      product: {},
+    }
+  },
+  methods: {
+    addToCart(product) {
+      // console.log(product);
+      this.product = product;
+    }
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -23,6 +42,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

@@ -1,0 +1,33 @@
+.btn {
+	&--product-card {
+		flex: 1;
+		padding: 0.6em 0.2em;
+		text-align: center;
+		white-space: nowrap;
+	}
+
+	&--size {
+		width: 2em;
+		border-radius: 0.1em;
+		background-color: transparent;
+	}
+
+	&--pink {
+		&:not(.btn--size) {
+			background-color: $pearl-pink;
+			border-color: $pearl-pink;
+			color: white;
+		}
+
+		&.btn--size {
+			border-color: $pearl-pink;
+			color: $pearl-pink;
+
+			&.active,
+			&:not(:disabled):hover {
+				background-color: $pearl-pink--dark;
+				color: white;
+			}
+		}
+	}
+}
