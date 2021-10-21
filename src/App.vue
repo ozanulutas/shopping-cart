@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <Navbar 
+    <Navbar />
+		<ShoppingCart 
       :product="product"
     />
+
     <b-container>
       <ProductsSection
         @add-to-cart="addToCart"
@@ -13,13 +15,15 @@
 
 <script>
 import Navbar from "@/components/Navbar.vue";
+import ShoppingCart from "@/components/ShoppingCart.vue";
 import ProductsSection from "@/components/ProductsSection.vue";
 
 export default {
   name: "App",
   components: {
-    ProductsSection,
     Navbar,
+		ShoppingCart,
+    ProductsSection,
   },
   data() {
     return {

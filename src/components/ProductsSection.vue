@@ -6,18 +6,6 @@
       :product="product"
       @add-to-cart="addToCart"
     />
-    <!-- <ProductCard 
-      v-for="product in products" 
-      :key="product.id"
-      :id="product.id"
-      :name="product.name"
-      :category="product.category"
-      :desc="product.desc"
-      :img="product.img"
-      :rating="product.rating"
-      :price="product.price"
-      :sizes="product.sizes"
-    /> -->
 	</section>
 </template>
 

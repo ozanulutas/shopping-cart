@@ -87,38 +87,6 @@ export default {
       type: Object,
       required: true,
     }
-    // id: {
-    //   type: Number,
-    //   required: true,
-    // },
-    // name: {
-    //   type: String,
-    //   required: true,
-    // },
-    // category: {
-    //   type: String,
-    //   required: true,
-    // },
-    // desc: {
-    //   type: String,
-    //   required: true,
-    // },
-    // img: {
-    //   type: String,
-    //   required: true,
-    // },
-    // rating: {
-    //   type: Number,
-    //   required: false,
-    // },
-    // price: {
-    //   type: Number,
-    //   required: true,
-    // },
-    // sizes: {
-    //   type: Array,
-    //   required: true,
-    // },
   },
   data() {
     return {
@@ -132,6 +100,11 @@ export default {
       return this.product.price + (this.sizeMultiplier * this.size);
     }
   },
+  watch: {
+    'product.sizes': function() {
+      console.log("changed");
+    }
+  },
   methods: {
     // Ürün miktarını belirler
     setQuantity(quantity) {
@@ -141,27 +114,24 @@ export default {
     // Ürün ekler
     addToCart(product) {
       this.$emit("add-to-cart", {
-        size: this.size,
-        quantity: this.quantity,
-        _price: this.price,
-        ...product,
+        id: product.id,
+        name: product.name,
+        category: product.category,
+        color: product.color,
+        img: product.img,
+        // size: this.size,
+        // quantity: this.quantity,
+        // price: this.price,
+        sizes: [
+          {
+            size: this.size,
+            price: this.price,
+            quantity: this.quantity,
+          }
+        ]
       });
-      
-      // const [sameProduct] = this.shoppingCart.filter(cartItem => cartItem.id === product.id);
-
-      // if(sameProduct) { // Ürün varsa quantity'sini artır
-      //   sameProduct.quantity += this.quantity;
-      // } else { // Ürün yoksa ekle
-      //   this.shoppingCart.unshift({
-      //     size: this.size,
-      //     quantity: this.quantity,
-      //     _price: this.price,
-      //     ...product,
-      //   });
-      // }
 
       this.setQuantity(1); // Ürün miktarını resetle
-      // console.log(this.shoppingCart);
     }
   }
 };
