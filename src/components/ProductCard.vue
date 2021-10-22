@@ -1,11 +1,11 @@
 <template>
   <b-card
-    no-body 
-    align="left" 
-    class="product-card shadow m-1" 
+    no-body
+    align="left"
+    class="product-card shadow m-2"
   >
     <b-row no-gutters>
-      <b-col md="7">
+      <b-col md="7" align-self="center">
         <b-card-body>
           <!-- Img -->
           <b-card-img
@@ -48,13 +48,13 @@
               :button-variant="` btn--product-card btn--size btn--${product.color}`"
             ></b-form-radio-group>
         </b-card-body>
-        
+
       </b-col>
       <b-col md="5" align-self="end">
         <b-card-body class="d-flex gap-1q">
           <!-- Add To Cart -->
           <button
-           block 
+           block
            class="btn btn--product-card btn--pink"
            :class="`btn--${product.color}`"
            @click="addToCart(product)"
@@ -63,16 +63,16 @@
           </button>
 
           <!-- Quantity -->
-          <b-dropdown 
-            size="md" 
+          <b-dropdown
+            size="md"
             class="product-card__quantity"
-            :toggle-class="`btn--${product.color}`" 
+            :toggle-class="`btn--${product.color}`"
             no-caret
           >
             <template #button-content>
               {{ quantity }}
             </template>
-            <b-dropdown-item 
+            <b-dropdown-item
               v-for="i in 10" :key="i"
               @click="setQuantity(i)"
             >
@@ -90,35 +90,36 @@
 export default {
   name: "ProductCard",
   props: {
-    product: {
+    product: { // ProductSection componentinden gelen prop
       type: Object,
       required: true,
     }
   },
   data() {
     return {
-      quantity: 1,
-      size: 4,
-      sizeMultiplier: 1.5,
+      quantity: 1, // Ürün adedi
+      size: 4,  // Ürün numarası
+      sizeMultiplier: 1.5,  // Ayakkabı numarası çarpanı
     }
   },
   computed: {
+    // Ayakkabı numarasına göre fiyatı hesaplar
     price() {
       return this.product.price + (this.sizeMultiplier * this.size);
     }
   },
-  watch: {
-    'product.sizes': function() {
-      console.log("changed");
-    }
-  },
+  // watch: {
+  //   'product.sizes': function() {
+  //     console.log("changed");
+  //   }
+  // },
   methods: {
     // Ürün miktarını belirler
     setQuantity(quantity) {
       this.quantity = quantity;
     },
 
-    // Ürün ekler
+    // Ürünün eklenmesi için App componentine emitler
     addToCart(product) {
       this.$emit("add-to-cart", {
         id: product.id,

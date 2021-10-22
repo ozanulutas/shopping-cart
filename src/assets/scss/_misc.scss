@@ -1,2 +1,9 @@
 @include gaps-list;
 @include text-color-list($colors);
+
+.custom-container {
+    max-width: 1300px;
+    width: 100%;
+    margin: auto;
+    padding: 1rem;
+}

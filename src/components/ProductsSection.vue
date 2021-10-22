@@ -3,10 +3,11 @@
     align-h="center"
   >
     <b-col
-      lg="6"
-      md="12"
       v-for="product in products" 
       :key="product.id"
+      lg="6"
+      md="12"
+      class="d-flex justify-content-center"
     >
       <ProductCard 
         :product="product"
@@ -27,11 +28,11 @@ export default {
   },
   data() {
     return {
-      products,
+      products, // ayakkabılar
     }
   },
   methods: {
-    addToCart(product) {
+    addToCart(product) { // Ürünün eklenmesi için App componentine emitler
       this.$emit("add-to-cart", product);
     }
   }

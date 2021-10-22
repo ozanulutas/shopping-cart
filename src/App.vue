@@ -8,14 +8,10 @@
       @items-count-change="(val) => shoppingCartItemsCount = val"
     />
 
-    <main class="main">
-      <!-- <b-container> -->
-
+    <main class="custom-container">
       <ProductsSection
         @add-to-cart="addToCart"
       />
-      <!-- </b-container> -->
-
     </main>
   </div>
 </template>
@@ -34,13 +30,13 @@ export default {
   },
   data() {
     return {
-      product: {},
-      shoppingCartItemsCount: 0,
+      product: {}, // Sepete eklenecek olan ürün
+      shoppingCartItemsCount: 0, // Sepetteki toplam ütün adedi
     }
   },
   methods: {
+    // ProductCard componentinden emitlenen ürün bilgisini yakalar
     addToCart(product) {
-      // console.log(product);
       this.product = product;
     }
   }
@@ -56,10 +52,5 @@ export default {
   color: #2c3e50;
 }
 
-.main {
-  max-width: 1300px;
-  width: 100%;
-  margin: auto;
-  padding: 1rem;
-}
+
 </style>
