@@ -4,7 +4,7 @@
     title="Shopping Cart"
     size="md"
   >
-    <div v-if="isCartEmpty">
+    <div v-if="itemsCount > 0">
     <CartItem 
       v-for="cartItem in shoppingCart"
       :key="cartItem.id"
@@ -41,27 +41,31 @@ export default {
 		}
 	},
   computed: {
-    isCartEmpty() {
-      return this.shoppingCart.length;
+    itemsCount() {
+      let total = 0;
+      this.shoppingCart.forEach(item => {
+        item.sizes.forEach(size => total += size.quantity);
+      });
+      return total;
     }
   },
 	watch: {
-		product: "addToCart"
+		product: "addToCart",
+    itemsCount: function(val) {
+      console.log(val);
+      this.$emit("items-count-change", val);
+    }
 	},
 	methods: {
 		// Ürün ekler
     addToCart() {
-      // console.log("product from card", this.product);
 			// Shopping cart'ta olan aynı id'li ürün
       const sameProduct = this.shoppingCart.find(cartItem => cartItem.id === this.product.id);
 			const [{size, quantity}] = this.product.sizes;
-      // console.log("size", size);
-      // console.log("same product", sameProduct);
 
       if(sameProduct) { // Ürün varsa quantity'sini artır
 				const sameSize = sameProduct.sizes.find(item => item.size === size);
 				if(sameSize) {
-					// sameSize.quantity += quantity;
           this.increaseItem(sameSize, quantity);
 				} else {
 					sameProduct.sizes.push(...this.product.sizes);
@@ -70,8 +74,7 @@ export default {
         this.shoppingCart.unshift(this.product);
       }
 
-      // console.log("shopping cart", this.shoppingCart);
-      // console.log("===================================");
+      this.makeToast();
     },
     removeFromCart(productId) {
       this.shoppingCart = this.shoppingCart.filter(cartItem => cartItem.id !== productId);
@@ -84,6 +87,15 @@ export default {
     },
     removeItem(product, sizeIndex) {
       product.sizes.splice(sizeIndex, 1);
+    },
+
+    makeToast() {
+      this.$bvToast.toast(`${this.product.name} has been added to your cart.`, {
+        title: this.product.name,
+        toaster: "b-toaster-bottom-center",
+        solid: true,
+        appendToast: false
+      });
     }
 	}
 }

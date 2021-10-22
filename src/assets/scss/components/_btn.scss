@@ -12,22 +12,25 @@
 		background-color: transparent;
 	}
 
-	&--pink {
-		&:not(.btn--size) {
-			background-color: $pearl-pink;
-			border-color: $pearl-pink;
-			color: white;
-		}
-
-		&.btn--size {
-			border-color: $pearl-pink;
-			color: $pearl-pink;
-
-			&.active,
-			&:not(:disabled):hover {
-				background-color: $pearl-pink--dark;
-				color: white;
-			}
-		}
-	}
+	// Renkli btn'ler
+	@each $name, $color in $colors {
+        &--#{$name} {
+            &:not(.btn--size) {
+                background-color: $color;
+                border-color: $color;
+                color: white;
+            }
+    
+            &.btn--size {
+                border-color: $color;
+                color: $color;
+    
+                &.active,
+                &:not(:disabled):hover {
+                    background-color: darken($color, 10);
+                    color: white;
+                }
+            }
+        }
+    }
 }

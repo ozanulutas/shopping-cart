@@ -1,15 +1,22 @@
 <template>
   <div id="app">
-    <Navbar />
+    <Navbar 
+      :shopping-cart-items-count="shoppingCartItemsCount"
+    />
 		<ShoppingCart 
       :product="product"
+      @items-count-change="(val) => shoppingCartItemsCount = val"
     />
 
-    <b-container>
+    <main class="main">
+      <!-- <b-container> -->
+
       <ProductsSection
         @add-to-cart="addToCart"
       />
-    </b-container>
+      <!-- </b-container> -->
+
+    </main>
   </div>
 </template>
 
@@ -28,6 +35,7 @@ export default {
   data() {
     return {
       product: {},
+      shoppingCartItemsCount: 0,
     }
   },
   methods: {
@@ -46,5 +54,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.main {
+  max-width: 1300px;
+  width: 100%;
+  margin: auto;
+  padding: 1rem;
 }
 </style>

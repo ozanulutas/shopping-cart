@@ -1,12 +1,19 @@
 <template>
-  <section>
-		<ProductCard 
+  <b-row
+    align-h="center"
+  >
+    <b-col
+      lg="6"
+      md="12"
       v-for="product in products" 
       :key="product.id"
-      :product="product"
-      @add-to-cart="addToCart"
-    />
-	</section>
+    >
+      <ProductCard 
+        :product="product"
+        @add-to-cart="addToCart"
+      />
+    </b-col>
+	</b-row>
 </template>
 
 <script>

@@ -2,11 +2,12 @@
   <b-card
     no-body 
     align="left" 
-    class="product-card shadow" 
+    class="product-card shadow m-1" 
   >
     <b-row no-gutters>
       <b-col md="7">
         <b-card-body>
+          <!-- Img -->
           <b-card-img
             :src="product.img"
             alt="Image"
@@ -16,15 +17,20 @@
       </b-col>
       <b-col md="5">
         <b-card-body>
-          <h6 class="product-card__subtitle">{{ product.category }}</h6>
+          <!-- Category -->
+          <h6 class="product-card__subtitle" :class="`text-${product.color}`">{{ product.category }}</h6>
+          <!-- Name -->
           <b-card-title>{{ product.name }}</b-card-title>
-          <h3 class="product-card__price">${{ price }}</h3>
+          <!-- Price -->
+          <h3 class="product-card__price" :class="`text-${product.color}`">${{ price }}</h3>
+          <!-- Desc -->
           <b-card-text class="text-justify">
             {{ product.desc }}
           </b-card-text>
+          <!-- Rating -->
           <div class="d-flex">
-            <i v-for="i in product.rating" :key="`f-${i}`" class="fas fa-star text-warning"></i>
-            <i v-for="i in (5 - product.rating)" :key="`e-${i}`" class="fas fa-star"></i>
+            <i v-for="i in product.rating" :key="`f-${i}`" class="fas fa-star" :class="`text-${product.color}`"></i>
+            <i v-for="i in (5 - product.rating)" :key="`e-${i}`" class="fas fa-star text-muted"></i>
           </div>
         </b-card-body>
       </b-col>
@@ -33,23 +39,24 @@
       <b-col md="7">
         <b-card-body>
           <!-- Size -->
-          <h6 class="product-card__subtitle">CHOOSE SIZE</h6>
+          <h6 class="product-card__subtitle" :class="`text-${product.color}`">CHOOSE SIZE</h6>
             <b-form-radio-group
               :options="product.sizes"
               v-model="size"
               class="product-card__sizes"
               buttons
-              button-variant=" btn--product-card btn--size btn--pink"
+              :button-variant="` btn--product-card btn--size btn--${product.color}`"
             ></b-form-radio-group>
         </b-card-body>
         
       </b-col>
       <b-col md="5" align-self="end">
         <b-card-body class="d-flex gap-1q">
-          <!-- Add -->
+          <!-- Add To Cart -->
           <button
            block 
            class="btn btn--product-card btn--pink"
+           :class="`btn--${product.color}`"
            @click="addToCart(product)"
           >
             ADD TO CART
@@ -59,7 +66,7 @@
           <b-dropdown 
             size="md" 
             class="product-card__quantity"
-            toggle-class="btn--pink" 
+            :toggle-class="`btn--${product.color}`" 
             no-caret
           >
             <template #button-content>
@@ -119,9 +126,6 @@ export default {
         category: product.category,
         color: product.color,
         img: product.img,
-        // size: this.size,
-        // quantity: this.quantity,
-        // price: this.price,
         sizes: [
           {
             size: this.size,

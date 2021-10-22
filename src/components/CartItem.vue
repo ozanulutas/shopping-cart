@@ -41,9 +41,7 @@ export default {
   computed: {
     totalItemPrice() {
       let total = 0;
-      this.product.sizes.forEach(
-        (item) => (total += item.quantity * item.price)
-      );
+      this.product.sizes.forEach(item => total += item.quantity * item.price);
       return total;
     },
   },

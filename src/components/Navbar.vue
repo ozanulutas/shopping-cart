@@ -3,6 +3,7 @@
 		toggleable="md"
 		type="dark"
 		variant="dark"
+		sticky
 		class="mb-5"
 	>
 		<b-container>
@@ -10,6 +11,7 @@
 			
 			<b-navbar-nav>
 				<b-nav-item v-b-modal.shopping-cart><i class="fas fa-shopping-cart"></i></b-nav-item>
+				<b-nav-item v-b-modal.shopping-cart>{{shoppingCartItemsCount}}</b-nav-item>
 			</b-navbar-nav>
 
 			<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -48,9 +50,14 @@
 
 export default {
 	name: "Navbar",
+	props: {
+    shoppingCartItemsCount: {
+      type: Number,
+      required: true,
+    }
+  },
 	components: {
 	},
-	
 };
 </script>
 
