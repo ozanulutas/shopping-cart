@@ -1,9 +1,8 @@
 # Shopping Cart
 
 Simple shopping cart app created with Vue.js and BootstrapVue.
-You can add choosen products to the cart. Items in the cart is grouped by product's variety.
+You can add choosen products to the cart. Items in the cart is grouped by its variety.
 
----------------
 
 ## Table of Contents
 
@@ -11,7 +10,6 @@ You can add choosen products to the cart. Items in the cart is grouped by produc
 * [Technologies](#technologies)
 * [Project Setup](#project-setup)
 
-------------------
 
 ## Features
 
@@ -21,7 +19,6 @@ You can add choosen products to the cart. Items in the cart is grouped by produc
 - Decrease product quantity in the cart
 - Remove product from cart
 
------------------
 
 ## Technologies
 
@@ -29,7 +26,6 @@ You can add choosen products to the cart. Items in the cart is grouped by produc
 - BootstrapVue 2.21.2
 - Sass
 
---------------------
 
 ## Project Setup
 ```
