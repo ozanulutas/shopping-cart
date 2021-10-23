@@ -1,5 +1,5 @@
 <template>
-  <b-card no-body class="overflow-hidden">
+  <b-card no-body class="product-card shadow-sm">
     <b-row no-gutters>
       <b-col md="5" align-self="center">
         <b-card-img :src="product.img" class="rounded-0"></b-card-img>

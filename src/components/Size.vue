@@ -10,7 +10,7 @@
 				class="p-0 mr-1"
 				@click="$emit('decrease')"
 			>
-				<i class="fas fa-minus-square"></i>
+				<i class="fas fa-minus-circle"></i>
 			</b-button> 
 			<b-button 
 				size="sm" 
@@ -18,7 +18,7 @@
 				class="p-0 mr-3"
 				@click="$emit('increase')"
 			>
-				<i class="fas fa-plus-square"></i>
+				<i class="fas fa-plus-circle"></i>
 			</b-button>
 			<b-button 
 				size="sm" 
