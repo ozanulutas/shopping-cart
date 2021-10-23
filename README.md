@@ -3,7 +3,7 @@
 
 # Shopping Cart
 
-[Project Link](https://vercel.com/ozanulutas/shopping-cart)
+[Project Link](https://shopping-cart-bay.vercel.app/)
 
 Simple shopping cart app created with Vue.js and BootstrapVue.
 You can add choosen products to the cart. Items in the cart is grouped by its variety.
