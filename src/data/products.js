@@ -8,6 +8,7 @@ export default [
 		img: require('@/assets/img/shoes/Nike-Epic-React-Flyknit-Pearl-Pink.png'),
 		rating: 4,
 		price: 150,
+		sex: "female",
 		sizes: [
 			{ text: "4", value: 4 },
 			{ text: "5", value: 5 },
@@ -29,6 +30,7 @@ export default [
 		img: require('@/assets/img/shoes/Nike-Epic-React-Flyknit-Blue.png'),
 		rating: 5,
 		price: 150,
+		sex: "female",
 		sizes: [
 			{ text: "4", value: 4 },
 			{ text: "5", value: 5 },
@@ -50,6 +52,7 @@ export default [
 		img: require('@/assets/img/shoes/Nike-Epic-React-Flyknit-Orange.png'),
 		rating: 3,
 		price: 150,
+		sex: "female",
 		sizes: [
 			{ text: "4", value: 4 },
 			{ text: "5", value: 5 },
@@ -71,6 +74,7 @@ export default [
 		img: require('@/assets/img/shoes/Nike-Air-Zoom-Tempo-Next-Green.png'),
 		rating: 4,
 		price: 180,
+		sex: "female",
 		sizes: [
 			{ text: "4", value: 4 },
 			{ text: "5", value: 5 },
@@ -92,6 +96,7 @@ export default [
 		img: require('@/assets/img/shoes/Nike-Air-Zoom-Tempo-Next-Gray.png'),
 		rating: 5,
 		price: 180,
+		sex: "female",
 		sizes: [
 			{ text: "4", value: 4 },
 			{ text: "5", value: 5 },
@@ -113,6 +118,7 @@ export default [
 		img: require('@/assets/img/shoes/Nike-Wildhorse-7-Orange.png'),
 		rating: 2,
 		price: 160,
+		sex: "male",
 		sizes: [
 			{ text: "4", value: 4 },
 			{ text: "5", value: 5 },
@@ -134,6 +140,7 @@ export default [
 		img: require('@/assets/img/shoes/Nike-Wildhorse-7-Green-Dark.png'),
 		rating: 5,
 		price: 160,
+		sex: "male",
 		sizes: [
 			{ text: "4", value: 4 },
 			{ text: "5", value: 5 },

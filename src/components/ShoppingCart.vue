@@ -8,9 +8,10 @@
     ok-variant="outline-primary"
     :hide-footer="itemsCount < 1"
     footer-border-variant="light"
+    header-border-variant="light"
   >
     <div v-if="itemsCount > 0">
-      <p><b>Total Amount:</b> ${{ totalPrice }}</p>
+      <p class="text-right"><b>Total Amount:</b> ${{ totalPrice }}</p>
       <CartItem 
         v-for="cartItem in shoppingCart"
         :key="cartItem.id"
@@ -117,7 +118,9 @@ export default {
         title: this.product.name,
         toaster: "b-toaster-bottom-center",
         solid: true,
-        appendToast: false
+        appendToast: false,
+        variant: "info",
+        autoHideDelay: 1500
       });
     }
 	}

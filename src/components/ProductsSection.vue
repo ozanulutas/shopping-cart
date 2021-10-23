@@ -3,7 +3,7 @@
     align-h="center"
   >
     <b-col
-      v-for="product in products" 
+      v-for="product in (filteredProducts.length > 0 ? filteredProducts : products)" 
       :key="product.id"
       lg="6"
       md="12"
@@ -26,9 +26,43 @@ export default {
   components: {
     ProductCard,
   },
+  props: {
+    colorFilters: {
+      type: Array,
+      required: false,
+      default: () => [],
+    }
+  },
   data() {
     return {
       products, // ayakkabılar
+      filteredProducts: [],
+    }
+  },
+  watch: {
+    colorFilters: function(filters) {
+
+      console.log("filters", filters);
+
+      // this.filteredProducts = this.products.filter(product => {
+      //   return filters.includes(product.color);
+      // });
+      this.filteredProducts = [];
+      let lastFilter = filters[filters.length - 1];
+
+      this.products.forEach(product => {
+        filters.forEach(filter => {
+          for (const key in filter) {
+            if(filter[key] === product[key]) {
+              this.filteredProducts.push(product);
+              let lastKey = key;
+              let lastProduct = product;
+            }
+          }
+        });
+      });
+
+      console.log(this.filteredProducts);
     }
   },
   methods: {

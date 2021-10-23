@@ -11,7 +11,7 @@
   &__quantity {
     background-color: map-get($colors, "pink");
     color: white;
-
+    border-radius: 0.25rem;
 
     // Dropdown açıldığında button rengini korur
     @each $name, $color in $colors {
